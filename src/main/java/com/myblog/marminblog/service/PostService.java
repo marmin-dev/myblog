@@ -2,11 +2,11 @@ package com.myblog.marminblog.service;
 
 import com.myblog.marminblog.dto.PostJoinDto;
 import com.myblog.marminblog.dto.PostSaveDto;
+import com.myblog.marminblog.dto.PostUpdateDto;
 import com.myblog.marminblog.entity.PostEntity;
 import com.myblog.marminblog.peristence.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +36,11 @@ public class PostService {
         }
         return strList;
     }
-
+    @Transactional
+    public void postUpdate(Long id, PostUpdateDto dto){
+        PostEntity entity = repository.findById(id).orElseThrow(
+                ()->new IllegalArgumentException("존재하지 않는 글입니다"));
+        entity.update(dto.getTitle(), dto.getContent());
+    }
 
 }

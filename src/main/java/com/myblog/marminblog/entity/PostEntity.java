@@ -18,4 +18,9 @@ public class PostEntity {
     private String author;
     @NonNull
     private String content;
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 }
