@@ -4,11 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "posts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "posts")
 public class PostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
