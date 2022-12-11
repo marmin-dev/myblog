@@ -29,7 +29,7 @@ public class PostApiController {
 //        String str = joindto.toString();
 //        System.out.println(str);
 //        return str;
-       List<String> strList = service.postJoin();
+       List<PostEntity> strList = repository.findAllDesc();
        return strList.toString();
     }
     @PutMapping("/getupdate")
